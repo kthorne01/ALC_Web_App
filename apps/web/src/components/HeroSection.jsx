@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  // Background drifts down as you scroll up — classic parallax
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background image — add photo at: public/images/hero/hero-bg.jpg */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/images/hero/hero-bg.jpg')" }}
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background image — parallax */}
+      <motion.div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        style={{
+          backgroundImage: "url('/images/hero/hero-bg.jpg')",
+          y: bgY,
+          scale: 1.15,
+        }}
       />
 
       {/* Gradient overlay — dark cinematic feel */}

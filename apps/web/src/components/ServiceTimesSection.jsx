@@ -10,15 +10,9 @@ const services = [
   },
   {
     day: 'Wednesday',
-    time: '7:00 PM',
+    time: '7:30 PM',
     name: 'Bible Study & Prayer',
     description: 'Midweek teaching and corporate prayer to keep you grounded.',
-  },
-  {
-    day: 'Friday',
-    time: 'TBD',
-    name: 'Youth & Young Adults',
-    description: 'A dedicated space for the next generation to connect and grow.',
   },
 ];
 
@@ -40,7 +34,7 @@ const ServiceTimesSection = () => {
         </div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16 max-w-2xl mx-auto">
           {services.map((service) => (
             <div
               key={service.day}

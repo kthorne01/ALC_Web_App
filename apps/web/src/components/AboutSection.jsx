@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const AboutSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+
+  const imgY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+
   return (
-    <section className="bg-black py-24" id="about">
+    <section ref={ref} className="bg-black py-24" id="about">
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 items-stretch min-h-[500px]">
 
-          {/* Image Column — add photo at: public/images/church/congregation.jpg */}
+          {/* Image Column — parallax photo */}
           <div className="relative overflow-hidden bg-zinc-900 min-h-[360px] lg:min-h-0">
-            <img
+            <motion.img
               src="/images/church/congregation.jpg"
               alt="Abundant Life Church congregation"
-              className="absolute inset-0 w-full h-full object-cover opacity-70"
+              className="absolute inset-0 w-full h-full object-cover opacity-70 will-change-transform"
+              style={{ y: imgY, scale: 1.15 }}
               onError={(e) => { e.target.style.display = 'none'; }}
             />
             {/* Gradient overlay */}

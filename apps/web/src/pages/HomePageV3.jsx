@@ -14,8 +14,8 @@ const HomePageV3 = () => (
       <HeroV3 />
       <StatementV3 />
       <TestimonialsSection />
-      <SermonsV3 />
       <ConnectV3 />
+      <SermonsV3 />
     </main>
     <FooterV2 />
   </div>

@@ -27,18 +27,18 @@ const PastorV4 = () => (
         className="font-heading font-bold uppercase text-black mb-1"
         style={{ fontSize: 'clamp(28px, 4vw, 52px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}
       >
-        PASTOR
+        APOSTLE
       </h3>
       <h3
         className="font-heading font-bold uppercase text-gold mb-8"
         style={{ fontSize: 'clamp(28px, 4vw, 52px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}
       >
-        [LAST NAME]
+        MCCOY
       </h3>
 
       {/* Bio */}
       <p className="text-black/50 text-sm leading-relaxed max-w-xl mb-10">
-        Add a short bio or vision statement here.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
 
       <a

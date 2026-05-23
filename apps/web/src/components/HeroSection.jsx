@@ -1,50 +1,41 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { ChevronDown } from 'lucide-react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 
-// SVG noise texture rendered as a data URI — gives the background visible grain
 const noiseSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E";
 
 const HeroSection = () => {
-  const ref = useRef(null);
-  const { scrollY } = useScroll();
-
-  // As window scrolls 0→700px: background drifts 0→200px, noise drifts 0→80px
-  const bgY = useTransform(scrollY, [0, 700], [0, 200]);
-  const noiseY = useTransform(scrollY, [0, 700], [0, 80]);
-
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d0c0a]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d0c0a]">
 
-      {/* Photo layer — moves fastest (full parallax when photo is added) */}
-      <motion.div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+      {/* Background photo — fixed so content scrolls over it (parallax) */}
+      <div
+        className="absolute inset-0"
         style={{
           backgroundImage: "url('/images/hero/hero-bg.jpg')",
-          y: bgY,
-          scale: 1.2,
+          backgroundAttachment: 'fixed',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       />
 
-      {/* Texture layer — dark stone/paper grain that visibly moves */}
-      <motion.div
-        className="absolute inset-0 will-change-transform"
+      {/* Grain texture — also fixed, drifts independently of content */}
+      <div
+        className="absolute inset-0"
         style={{
-          y: noiseY,
-          scale: 1.2,
           backgroundImage: `url("${noiseSrc}")`,
-          backgroundRepeat: 'repeat',
+          backgroundAttachment: 'fixed',
           backgroundSize: '400px 400px',
-          opacity: 0.22,
+          backgroundRepeat: 'repeat',
+          opacity: 0.25,
         }}
       />
 
-      {/* Warm radial glow — gives depth to the dark background */}
+      {/* Warm radial glow for depth */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 60%)',
+            'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.08) 0%, transparent 70%)',
         }}
       />
 

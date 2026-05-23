@@ -1,20 +1,20 @@
-import React from 'react';
-
-const PhotoSlot = ({ src, style = {}, className = '' }) => (
-  <div
-    className={`overflow-hidden bg-zinc-300 ${className}`}
-    style={{ mixBlendMode: 'multiply', ...style }}
-  >
-    <img
-      src={src}
-      alt=""
-      className="w-full h-full object-cover"
-      onError={(e) => { e.target.style.display = 'none'; }}
-    />
-  </div>
-);
+import React, { useRef, useEffect } from 'react';
 
 const HeroV2 = () => {
+  const photo1Ref = useRef(null);
+  const photo2Ref = useRef(null);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.14}px)`;
+      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.22}px)`;
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   const ctaLinks = [
     { label: 'Plan Your Visit', href: '#visit' },
     { label: 'Get Connected', href: '#connect' },
@@ -34,40 +34,90 @@ const HeroV2 = () => {
 
       <div className="flex-1 flex flex-col lg:flex-row pt-20">
 
-        {/* Left column: headline + photos below */}
-        <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14">
+        {/* Left column: headline + floating photos */}
+        <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14 relative overflow-hidden">
 
-          <p className="text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
+          <p className="text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium relative z-20">
             <span className="text-gold">[ </span>
             Abundant Life Church — Rock Hill, SC
             <span className="text-gold"> ]</span>
           </p>
 
-          {/* Headline — clean, no photos overlapping */}
+          {/* Headline */}
           <h1
-            className="font-heading font-bold uppercase"
+            className="font-heading font-bold uppercase relative z-20"
             style={{ lineHeight: 0.88, letterSpacing: '-0.02em' }}
           >
             <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>HOME OF</span>
-            <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>THE LIVING</span>
-            <span className="block text-gold"  style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
+
+            {/* "THE LIVING" — photo shows through the letter shapes (background-clip: text) */}
+            {/* Black fallback underneath so text is never invisible */}
+            <span className="block relative" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>
+              <span className="text-black" aria-hidden="true" style={{ userSelect: 'none' }}>THE LIVING</span>
+              <span
+                className="absolute inset-0"
+                style={{
+                  backgroundImage: 'url(/images/hero/hero-worship.jpg)',
+                  backgroundSize: '110% auto',
+                  backgroundPosition: '55% 35%',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  color: 'transparent',
+                }}
+              >
+                THE LIVING
+              </span>
+            </span>
+
+            <span className="block text-gold" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
           </h1>
 
-          {/* Photos below the text — side by side, not overlapping words */}
-          <div className="hidden lg:flex gap-4 mt-10">
-            <PhotoSlot
+          {/* Photo 1 — tall portrait, floats to the right behind the headline */}
+          <div
+            ref={photo1Ref}
+            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
+            style={{
+              mixBlendMode: 'multiply',
+              top: '8%',
+              right: '4%',
+              width: '26%',
+              aspectRatio: '3/4',
+              zIndex: 10,
+            }}
+          >
+            <img
               src="/images/hero/hero-worship.jpg"
-              style={{ width: '38%', aspectRatio: '4/5', flexShrink: 0 }}
-            />
-            <PhotoSlot
-              src="/images/hero/hero-community.jpg"
-              style={{ width: '28%', aspectRatio: '1/1', alignSelf: 'flex-end', flexShrink: 0 }}
+              alt=""
+              className="w-full h-full object-cover"
+              onError={(e) => { e.target.style.display = 'none'; }}
             />
           </div>
+
+          {/* Photo 2 — small square, lower, scrolls faster */}
+          <div
+            ref={photo2Ref}
+            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
+            style={{
+              mixBlendMode: 'multiply',
+              bottom: '8%',
+              right: '30%',
+              width: '16%',
+              aspectRatio: '1/1',
+              zIndex: 10,
+            }}
+          >
+            <img
+              src="/images/hero/hero-community.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+          </div>
+
         </div>
 
-        {/* Right column: latest sermon + BIG video */}
-        <div className="lg:w-[44%] xl:w-[46%] flex flex-col px-10 lg:px-10 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4">
+        {/* Right column: latest sermon + video (standard 16:9) */}
+        <div className="lg:w-[34%] xl:w-[35%] flex flex-col px-10 lg:px-8 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4">
           <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">
             Latest Sermon
           </p>
@@ -80,8 +130,8 @@ const HeroV2 = () => {
             </span>
           </a>
 
-          {/* Video — fills remaining height of right column */}
-          <div className="flex-1 relative" style={{ minHeight: '320px' }}>
+          {/* Video — 16:9 aspect ratio, naturally proportional to column width */}
+          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               src="https://www.youtube.com/embed/YdjlUysRqN0"
               title="Latest Sermon"

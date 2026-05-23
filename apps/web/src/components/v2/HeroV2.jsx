@@ -84,7 +84,7 @@ const HeroV2 = () => {
       </div>
 
       <div className="flex-1 flex flex-col pt-20">
-        <div className="flex-1 px-10 lg:px-16 py-10 lg:py-14">
+        <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14">
 
           <p className="relative text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium" style={{ zIndex: 20 }}>
             <span className="text-gold">[ </span>
@@ -116,16 +116,18 @@ const HeroV2 = () => {
             </div>
           </div>
 
-        </div>
-      </div>
+          {/* CTA links — pushed to bottom of the flex content area */}
+          <div className="mt-auto pt-14 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-14" style={{ zIndex: 20 }}>
+            {ctaLinks.map((cta) => (
+              <a key={cta.label} href={cta.href}
+                className="text-black/50 hover:text-gold tracking-[0.25em] uppercase transition-colors duration-200 font-medium font-heading group"
+                style={{ fontSize: 'clamp(13px, 1.4vw, 20px)' }}>
+                <span className="text-gold/60 group-hover:text-gold">( </span>{cta.label}<span className="text-gold/60 group-hover:text-gold"> )</span>
+              </a>
+            ))}
+          </div>
 
-      <div className="relative border-t border-black/10 py-5 px-10 lg:px-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10" style={{ zIndex: 20 }}>
-        {ctaLinks.map((cta) => (
-          <a key={cta.label} href={cta.href}
-            className="text-black/50 hover:text-gold text-xs tracking-[0.2em] uppercase transition-colors duration-200 font-medium group">
-            <span className="text-gold/60 group-hover:text-gold">( </span>{cta.label}<span className="text-gold/60 group-hover:text-gold"> )</span>
-          </a>
-        ))}
+        </div>
       </div>
     </section>
   );

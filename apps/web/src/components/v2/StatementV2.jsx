@@ -38,11 +38,7 @@ const StatementV2 = () => {
 
         {/* Photo 1 */}
         <div ref={p1Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
-          style={{ mixBlendMode: 'multiply', top: '5%', left: '-2%', width: '18%', aspectRatio: '3/4' }}>
-          <img src="/images/church/worship.jpg" alt=""
-            className="w-full h-full object-cover"
-            onError={(e) => { e.target.style.display = 'none'; }} />
-        </div>
+          style={{ mixBlendMode: 'multiply', top: '5%', left: '-2%', width: '18%', aspectRatio: '3/4' }} />
 
         {/* Photo 2 */}
         <div ref={p2Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"

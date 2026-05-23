@@ -15,9 +15,9 @@ const HomePageV4 = () => (
       <HeroV4 />
       <StatementV4 />
       <PastorV4 />
-      <SermonsV4 />
       <ConnectV4 />
       <TestimonialsSection />
+      <SermonsV4 />
     </main>
     <FooterV2 />
   </div>

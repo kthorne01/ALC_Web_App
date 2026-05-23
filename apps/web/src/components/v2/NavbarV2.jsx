@@ -20,18 +20,17 @@ const NavbarV2 = () => {
           <img
             src="/logo.png"
             alt="Abundant Life Church"
-            className="h-8 w-8 object-contain brightness-0 invert"
+            className="h-8 w-8 object-contain"
             onError={(e) => { e.target.style.display = 'none'; }}
           />
-          <span className="font-heading font-semibold text-white uppercase tracking-[0.2em] text-sm">
+          <span className="font-heading font-semibold text-black uppercase tracking-[0.2em] text-sm">
             Abundant Life <span className="text-gold">Church</span>
           </span>
         </a>
 
-        {/* Hamburger */}
         <button
           onClick={() => setOpen(true)}
-          className="text-white hover:text-gold transition-colors p-2 pointer-events-auto"
+          className="text-black hover:text-gold transition-colors p-2 pointer-events-auto"
           aria-label="Open menu"
         >
           <Menu size={22} strokeWidth={1.5} />

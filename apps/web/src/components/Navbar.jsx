@@ -74,7 +74,7 @@ const Navbar = () => {
           </div>
           <a
             href="#visit"
-            className="bg-gold text-black px-7 py-2.5 text-xs font-bold tracking-[0.2em] uppercase hover:bg-gold-light transition-colors duration-200"
+            className="bg-gold text-black px-7 py-2.5 text-xs font-bold tracking-[0.2em] uppercase hover:bg-gold/80 transition-colors duration-200"
           >
             Plan a Visit
           </a>
@@ -106,7 +106,7 @@ const Navbar = () => {
             ))}
             <a
               href="#visit"
-              className="bg-gold text-black px-7 py-3 text-xs font-bold tracking-[0.2em] uppercase text-center mt-4 hover:bg-gold-light transition-colors"
+              className="bg-gold text-black px-7 py-3 text-xs font-bold tracking-[0.2em] uppercase text-center mt-4 hover:bg-gold/80 transition-colors"
               onClick={() => setMenuOpen(false)}
             >
               Plan a Visit

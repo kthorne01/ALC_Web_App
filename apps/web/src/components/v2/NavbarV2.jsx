@@ -74,7 +74,7 @@ const NavbarV2 = () => {
             <a
               href="#visit"
               onClick={() => setOpen(false)}
-              className="inline-block bg-gold text-black px-8 py-3 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold-light transition-colors"
+              className="inline-block bg-gold text-black px-8 py-3 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold/80 transition-colors"
             >
               Plan Your Visit
             </a>

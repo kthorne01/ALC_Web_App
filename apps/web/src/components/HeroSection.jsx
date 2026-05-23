@@ -87,7 +87,7 @@ const HeroSection = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#visit"
-            className="bg-gold text-black px-10 py-4 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold-light transition-all duration-200 min-w-[220px]"
+            className="bg-gold text-black px-10 py-4 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold/80 transition-all duration-200 min-w-[220px]"
           >
             Plan Your Visit
           </a>

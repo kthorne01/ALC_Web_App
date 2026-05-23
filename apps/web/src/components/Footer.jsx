@@ -72,7 +72,7 @@ const Footer = () => {
             </p>
             <a
               href="#connect"
-              className="inline-block bg-gold text-black px-6 py-3 font-heading font-bold tracking-[0.2em] uppercase text-xs hover:bg-gold-light transition-colors duration-200"
+              className="inline-block bg-gold text-black px-6 py-3 font-heading font-bold tracking-[0.2em] uppercase text-xs hover:bg-gold/80 transition-colors duration-200"
             >
               Get In Touch
             </a>

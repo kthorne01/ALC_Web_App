@@ -79,7 +79,7 @@ const ServiceTimesSection = () => {
 
           <a
             href="#visit"
-            className="bg-gold text-black px-10 py-4 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold-light transition-colors duration-200 flex-shrink-0"
+            className="bg-gold text-black px-10 py-4 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold/80 transition-colors duration-200 flex-shrink-0"
           >
             Plan Your Visit
           </a>

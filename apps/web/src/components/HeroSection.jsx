@@ -71,6 +71,18 @@ const HeroSection = () => {
         </div>
       </div>
 
+      {/* Scripture verse */}
+      <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-full text-center px-6 pointer-events-none">
+        <div className="flex items-center justify-center gap-4 mb-3">
+          <div className="h-px bg-gold/30 w-12" />
+          <span className="text-gold/50 text-[9px] tracking-[0.4em] uppercase">John 10:10</span>
+          <div className="h-px bg-gold/30 w-12" />
+        </div>
+        <p className="text-white/40 text-xs sm:text-sm italic font-sans tracking-wide">
+          "I came that they may have life, and have it more abundantly."
+        </p>
+      </div>
+
       {/* Scroll Indicator */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hover:text-gold/60 transition-colors cursor-pointer">
         <span className="text-[10px] tracking-[0.4em] uppercase">Scroll</span>

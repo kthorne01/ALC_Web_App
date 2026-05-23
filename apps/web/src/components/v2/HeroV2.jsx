@@ -86,7 +86,7 @@ const HeroV2 = () => {
       <div className="flex-1 flex flex-col pt-20">
         <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14">
 
-          <p className="relative text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium" style={{ zIndex: 20 }}>
+          <p className="relative text-black/60 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium" style={{ zIndex: 20 }}>
             <span className="text-gold">[ </span>
             Abundant Life Church — Rock Hill, SC
             <span className="text-gold"> ]</span>

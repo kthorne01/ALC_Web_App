@@ -38,12 +38,12 @@ const NavbarV2 = () => {
         <div className="flex items-center gap-3 pointer-events-auto">
           {/* Version switcher */}
           <div className="hidden md:flex items-center gap-1 border border-black/15 px-2 py-1">
-            <span className="text-black/25 text-[9px] tracking-[0.3em] uppercase mr-1">Preview</span>
+            <span className="text-black/55 text-[9px] tracking-[0.3em] uppercase mr-1">Preview</span>
             {VERSION_LINKS.map((v) => (
               <a
                 key={v.label}
                 href={v.href}
-                className="text-black/40 hover:text-gold text-[10px] font-bold tracking-[0.1em] uppercase px-1.5 py-0.5 hover:bg-gold/10 transition-colors"
+                className="text-black/65 hover:text-gold text-[10px] font-bold tracking-[0.1em] uppercase px-1.5 py-0.5 hover:bg-gold/10 transition-colors"
               >
                 {v.label}
               </a>

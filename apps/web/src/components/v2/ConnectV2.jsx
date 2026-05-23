@@ -18,7 +18,7 @@ const ConnectV2 = () => (
           LOCAL
         </span>
 
-        <p className="text-black/30 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
+        <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
           <span className="text-gold">[ </span>Join Us<span className="text-gold"> ]</span>
         </p>
 
@@ -27,20 +27,20 @@ const ConnectV2 = () => (
           <span className="block text-gold">IN-PERSON</span>
         </h2>
 
-        <p className="text-black/40 text-sm tracking-[0.1em] uppercase mb-8 max-w-xs leading-relaxed">
+        <p className="text-black/65 text-sm tracking-[0.1em] uppercase mb-8 max-w-xs leading-relaxed">
           Real community, real worship, real transformation — every week in Rock Hill, SC.
         </p>
 
         <div className="space-y-3 mb-10">
           {[{ day: 'SUNDAY', time: '11:00 AM' }, { day: 'WEDNESDAY', time: '7:30 PM' }].map((s) => (
             <div key={s.day} className="flex items-center gap-4">
-              <span className="font-heading font-bold text-black/50 text-xs tracking-[0.3em] w-28">{s.day}</span>
+              <span className="font-heading font-bold text-black/65 text-xs tracking-[0.3em] w-28">{s.day}</span>
               <span className="text-gold text-xs tracking-[0.2em] font-bold">{s.time}</span>
             </div>
           ))}
         </div>
 
-        <a href="#visit" className="inline-block font-heading font-bold text-xs tracking-[0.3em] uppercase text-black/40 hover:text-gold transition-colors group">
+        <a href="#visit" className="inline-block font-heading font-bold text-xs tracking-[0.3em] uppercase text-black/65 hover:text-gold transition-colors group">
           <span className="text-gold/60 group-hover:text-gold">( </span>Plan Your Visit ↗<span className="text-gold/60 group-hover:text-gold"> )</span>
         </a>
 
@@ -49,7 +49,7 @@ const ConnectV2 = () => (
 
       {/* Right — Online */}
       <div className="flex-1 px-10 lg:px-16 py-20 lg:py-28 relative">
-        <p className="text-black/30 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
+        <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
           <span className="text-gold">[ </span>Wherever You Are<span className="text-gold"> ]</span>
         </p>
 
@@ -58,20 +58,20 @@ const ConnectV2 = () => (
           <span className="block text-gold">ONLINE</span>
         </h2>
 
-        <p className="text-black/40 text-sm tracking-[0.1em] uppercase mb-8 max-w-xs leading-relaxed">
+        <p className="text-black/65 text-sm tracking-[0.1em] uppercase mb-8 max-w-xs leading-relaxed">
           Sermons, messages, and community — available anywhere, any time.
         </p>
 
         <div className="space-y-3 mb-10">
           {['Watch Live', 'Sermon Archive', 'Daily Devotionals'].map((item) => (
-            <div key={item} className="flex items-center gap-3 text-black/40 hover:text-gold transition-colors cursor-pointer group">
+            <div key={item} className="flex items-center gap-3 text-black/65 hover:text-gold transition-colors cursor-pointer group">
               <span className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[7px] flex-shrink-0">▶</span>
               <span className="text-xs tracking-[0.2em] uppercase font-medium">{item}</span>
             </div>
           ))}
         </div>
 
-        <a href="#sermons" className="inline-block font-heading font-bold text-xs tracking-[0.3em] uppercase text-black/40 hover:text-gold transition-colors group">
+        <a href="#sermons" className="inline-block font-heading font-bold text-xs tracking-[0.3em] uppercase text-black/65 hover:text-gold transition-colors group">
           <span className="text-gold/60 group-hover:text-gold">( </span>Watch Now ↗<span className="text-gold/60 group-hover:text-gold"> )</span>
         </a>
 

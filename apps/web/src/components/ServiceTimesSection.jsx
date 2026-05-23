@@ -12,7 +12,7 @@ const services = [
     day: 'Wednesday',
     time: '7:30 PM',
     name: 'Bible Study & Prayer',
-    description: 'Midweek teaching and corporate prayer to keep you grounded.',
+    description: 'Midweek teaching and prayer to keep you grounded.',
   },
 ];
 

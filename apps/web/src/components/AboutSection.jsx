@@ -7,7 +7,7 @@ const AboutSection = () => {
     const onScroll = () => {
       if (imgRef.current) {
         const y = window.scrollY;
-        imgRef.current.style.transform = `scale(1.15) translateY(${y * -0.12}px)`;
+        imgRef.current.style.transform = `scale(1.4) translateY(${y * -0.08}px)`;
       }
     };
     onScroll(); // set initial position immediately

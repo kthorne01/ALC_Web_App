@@ -17,13 +17,10 @@ const PhotoSlot = ({ src, className = '', style = {} }) => (
 
 const MissionV2 = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
+  const { scrollY } = useScroll();
 
-  const photo1Y = useTransform(scrollYProgress, [0, 1], [80, -80]);
-  const photo2Y = useTransform(scrollYProgress, [0, 1], [20, -120]);
+  const photo1Y = useTransform(scrollY, [800, 1800], [80, -80]);
+  const photo2Y = useTransform(scrollY, [800, 1800], [20, -120]);
 
   const pillars = [
     { num: '01', label: 'ENCOUNTER GOD' },

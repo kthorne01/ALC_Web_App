@@ -17,13 +17,10 @@ const PhotoSlot = ({ src, className = '', style = {} }) => (
 
 const StatementV2 = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
+  const { scrollY } = useScroll();
 
-  const photo1Y = useTransform(scrollYProgress, [0, 1], [60, -60]);
-  const photo2Y = useTransform(scrollYProgress, [0, 1], [30, -100]);
+  const photo1Y = useTransform(scrollY, [300, 1200], [60, -60]);
+  const photo2Y = useTransform(scrollY, [300, 1200], [30, -100]);
 
   return (
     <section ref={ref} className="relative py-24 lg:py-36 px-10 lg:px-16 bg-transparent overflow-hidden">

@@ -3,12 +3,9 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 
 const AboutSection = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start end', 'end start'],
-  });
+  const { scrollY } = useScroll();
 
-  const imgY = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+  const imgY = useTransform(scrollY, [400, 1400], [-60, 60]);
 
   return (
     <section ref={ref} className="bg-black py-24" id="about">

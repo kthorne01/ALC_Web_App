@@ -4,7 +4,8 @@ const ScrollEffectsV2 = () => (
   <>
     {/* Blur layer — backdrop-filter blurs content as it scrolls under the nav */}
     <div
-      className="fixed top-0 left-0 right-0 z-39 pointer-events-none"
+      className="fixed top-0 left-0 right-0 pointer-events-none"
+      style={{ zIndex: 39 }}
       style={{
         height: '120px',
         backdropFilter: 'blur(10px)',

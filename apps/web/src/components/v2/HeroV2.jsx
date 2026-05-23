@@ -17,14 +17,11 @@ const PhotoSlot = ({ src, className = '', style = {} }) => (
 
 const HeroV2 = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
+  const { scrollY } = useScroll();
 
-  const photo1Y = useTransform(scrollYProgress, [0, 1], [0, -90]);
-  const photo2Y = useTransform(scrollYProgress, [0, 1], [0, -130]);
-  const sermonY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const photo1Y = useTransform(scrollY, [0, 700], [0, -90]);
+  const photo2Y = useTransform(scrollY, [0, 700], [0, -130]);
+  const sermonY = useTransform(scrollY, [0, 700], [0, -50]);
 
   const ctaLinks = [
     { label: 'Plan Your Visit', href: '#visit' },

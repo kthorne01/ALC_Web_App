@@ -7,13 +7,11 @@ const noiseSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' w
 
 const HeroSection = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['start start', 'end start'],
-  });
+  const { scrollY } = useScroll();
 
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const noiseY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
+  // As window scrolls 0→700px: background drifts 0→200px, noise drifts 0→80px
+  const bgY = useTransform(scrollY, [0, 700], [0, 200]);
+  const noiseY = useTransform(scrollY, [0, 700], [0, 80]);
 
   return (
     <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d0c0a]">
@@ -37,8 +35,7 @@ const HeroSection = () => {
           backgroundImage: `url("${noiseSrc}")`,
           backgroundRepeat: 'repeat',
           backgroundSize: '400px 400px',
-          opacity: 0.18,
-          mixBlendMode: 'overlay',
+          opacity: 0.22,
         }}
       />
 

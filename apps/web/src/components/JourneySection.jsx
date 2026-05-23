@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Users, Play } from 'lucide-react';
+import { MapPin, Users, HandHeart } from 'lucide-react';
 
 const steps = [
   {
@@ -22,12 +22,12 @@ const steps = [
   },
   {
     number: '03',
-    icon: Play,
-    title: 'Watch & Grow',
+    icon: HandHeart,
+    title: 'Submit a Prayer Request',
     description:
-      'Miss a service or want to go deeper? Access sermons, teachings, and resources designed to strengthen your walk with God.',
-    cta: 'Watch Sermons',
-    href: '#sermons',
+      'We believe in the power of prayer. Share what\'s on your heart and let our team stand with you in faith.',
+    cta: 'Submit a Request',
+    href: '#prayer',
   },
 ];
 

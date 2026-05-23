@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 const SLIDES = [
-  { src: '/images/hero/alanatab.jpg',       fast: true  },
+  { src: '/images/hero/jamin.jpg',          fast: true  },
+  { src: '/images/hero/alanatab.jpg',       fast: false },
   { src: '/images/hero/bishopmaleah.jpg',   fast: false },
   { src: '/images/hero/jraaron.jpg',        fast: false },
-  { src: '/images/hero/jamin.jpg',           fast: false },
 ];
 
 const SHOW_MS = 5500;   // how long each slide displays before the next starts fading in

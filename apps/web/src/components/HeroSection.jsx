@@ -104,7 +104,7 @@ const HeroSection = () => {
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 w-full text-center px-6 pointer-events-none">
         <div className="flex items-center justify-center gap-4 mb-3">
           <div className="h-px bg-gold/30 w-12" />
-          <span className="text-gold/50 text-[9px] tracking-[0.4em] uppercase">John 10:10</span>
+          <span className="text-gold/50 text-sm tracking-[0.4em] uppercase">John 10:10</span>
           <div className="h-px bg-gold/30 w-12" />
         </div>
         <p className="text-white/40 text-sm sm:text-xl md:text-2xl italic font-sans tracking-wide">

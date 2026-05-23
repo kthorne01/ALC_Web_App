@@ -2,19 +2,13 @@ import React, { useRef, useEffect } from 'react';
 
 const HeroV2 = () => {
   const p1Box = useRef(null);
-  const p1Img = useRef(null);
   const p2Box = useRef(null);
-  const p2Img = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      // Containers drift upward at different rates
       if (p1Box.current) p1Box.current.style.transform = `translateY(${y * -0.15}px)`;
       if (p2Box.current) p2Box.current.style.transform = `translateY(${y * -0.26}px)`;
-      // Images inside scroll in the opposite direction — content shifts within the frame
-      if (p1Img.current) p1Img.current.style.transform = `translateY(${y * 0.09}px)`;
-      if (p2Img.current) p2Img.current.style.transform = `translateY(${y * 0.14}px)`;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -28,7 +22,7 @@ const HeroV2 = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-transparent overflow-visible" id="hero">
+    <section className="relative min-h-screen flex flex-col bg-transparent" id="hero">
 
       <span
         className="absolute left-1 top-1/2 font-heading font-bold text-black/10 text-[11px] tracking-[0.5em] uppercase select-none pointer-events-none z-0"
@@ -37,42 +31,60 @@ const HeroV2 = () => {
         HOME
       </span>
 
-      <div className="flex-1 flex flex-col lg:flex-row pt-20">
+      {/* Photo 1 — large portrait, floats right behind headline */}
+      <div
+        ref={p1Box}
+        className="absolute hidden lg:block overflow-hidden bg-zinc-300"
+        style={{ mixBlendMode: 'multiply', top: '8%', right: '22%', width: '30%', aspectRatio: '3/4', zIndex: 10 }}
+      >
+        <img
+          src="/images/hero/hero-worship.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          onError={(e) => { e.target.style.display = 'none'; }}
+        />
+      </div>
 
-        {/* Left column: headline + photos floating absolutely behind it */}
-        <div className="flex-1 relative px-10 lg:px-16 py-10 lg:py-14">
+      {/* Photo 2 — smaller, lower left */}
+      <div
+        ref={p2Box}
+        className="absolute hidden lg:block overflow-hidden bg-zinc-300"
+        style={{ mixBlendMode: 'multiply', bottom: '18%', left: '8%', width: '18%', aspectRatio: '4/5', zIndex: 10 }}
+      >
+        <img
+          src="/images/hero/hero-community.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          onError={(e) => { e.target.style.display = 'none'; }}
+        />
+      </div>
 
-          {/* Photo 1 — large portrait, right side, behind headline */}
-          <div
-            ref={p1Box}
-            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
-            style={{ mixBlendMode: 'multiply', top: '8%', right: '2%', width: '36%', aspectRatio: '3/4', zIndex: 10 }}
-          >
-            <img
-              ref={p1Img}
-              src="/images/hero/hero-worship.jpg"
-              alt=""
-              className="w-full object-cover"
-              style={{ height: '130%', marginTop: '-15%' }}
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-          </div>
+      {/* Video — smaller, lower-right, absolutely positioned */}
+      <div
+        className="absolute hidden lg:flex flex-col gap-3"
+        style={{ right: '2%', top: '52%', width: '19%', zIndex: 20 }}
+      >
+        <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">Latest Sermon</p>
+        <a href="#sermons" className="text-black/40 hover:text-gold text-xs tracking-[0.15em] uppercase transition-colors flex items-center gap-2 group">
+          <span className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[7px] flex-shrink-0">▶</span>
+          <span>
+            <span className="text-gold/70 group-hover:text-gold">( </span>WATCH NOW ↗<span className="text-gold/70 group-hover:text-gold"> )</span>
+          </span>
+        </a>
+        <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <iframe
+            src="https://www.youtube.com/embed/YdjlUysRqN0"
+            title="Latest Sermon"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="absolute inset-0 w-full h-full"
+            style={{ border: 'none' }}
+          />
+        </div>
+      </div>
 
-          {/* Photo 2 — smaller, lower left, scrolls faster */}
-          <div
-            ref={p2Box}
-            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
-            style={{ mixBlendMode: 'multiply', bottom: '4%', left: '8%', width: '20%', aspectRatio: '4/5', zIndex: 10 }}
-          >
-            <img
-              ref={p2Img}
-              src="/images/hero/hero-community.jpg"
-              alt=""
-              className="w-full object-cover"
-              style={{ height: '130%', marginTop: '-15%' }}
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-          </div>
+      <div className="flex-1 flex flex-col pt-20">
+        <div className="flex-1 px-10 lg:px-16 py-10 lg:py-14">
 
           <p className="relative text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium" style={{ zIndex: 20 }}>
             <span className="text-gold">[ </span>
@@ -89,27 +101,21 @@ const HeroV2 = () => {
             <span className="block text-gold"  style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
           </h1>
 
-        </div>
-
-        {/* Right column: video only */}
-        <div className="lg:w-[36%] xl:w-[38%] flex flex-col px-10 lg:px-8 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4" style={{ zIndex: 20 }}>
-          <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">Latest Sermon</p>
-          <a href="#sermons" className="text-black/40 hover:text-gold text-xs tracking-[0.15em] uppercase transition-colors flex items-center gap-2 group">
-            <span className="w-5 h-5 rounded-full border border-current flex items-center justify-center text-[8px] flex-shrink-0">▶</span>
-            <span>
-              <span className="text-gold/70 group-hover:text-gold">( </span>WATCH NOW ↗<span className="text-gold/70 group-hover:text-gold"> )</span>
-            </span>
-          </a>
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-            <iframe
-              src="https://www.youtube.com/embed/YdjlUysRqN0"
-              title="Latest Sermon"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="absolute inset-0 w-full h-full"
-              style={{ border: 'none' }}
-            />
+          {/* Mobile-only video */}
+          <div className="lg:hidden mt-10">
+            <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold mb-3">Latest Sermon</p>
+            <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+              <iframe
+                src="https://www.youtube.com/embed/YdjlUysRqN0"
+                title="Latest Sermon"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 'none' }}
+              />
+            </div>
           </div>
+
         </div>
       </div>
 

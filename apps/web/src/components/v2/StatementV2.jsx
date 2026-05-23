@@ -2,17 +2,13 @@ import React, { useRef, useEffect } from 'react';
 
 const StatementV2 = () => {
   const p1Box = useRef(null);
-  const p1Img = useRef(null);
   const p2Box = useRef(null);
-  const p2Img = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
       if (p1Box.current) p1Box.current.style.transform = `translateY(${y * -0.08}px)`;
       if (p2Box.current) p2Box.current.style.transform = `translateY(${y * -0.14}px)`;
-      if (p1Img.current) p1Img.current.style.transform = `translateY(${y * 0.05}px)`;
-      if (p2Img.current) p2Img.current.style.transform = `translateY(${y * 0.09}px)`;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -43,16 +39,16 @@ const StatementV2 = () => {
         {/* Photo 1 */}
         <div ref={p1Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
           style={{ mixBlendMode: 'multiply', top: '5%', left: '-2%', width: '18%', aspectRatio: '3/4' }}>
-          <img ref={p1Img} src="/images/church/worship.jpg" alt=""
-            className="w-full object-cover" style={{ height: '130%', marginTop: '-15%' }}
+          <img src="/images/church/worship.jpg" alt=""
+            className="w-full h-full object-cover"
             onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
 
         {/* Photo 2 */}
         <div ref={p2Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
           style={{ mixBlendMode: 'multiply', bottom: '-5%', right: '3%', width: '15%', aspectRatio: '1/1' }}>
-          <img ref={p2Img} src="/images/church/congregation.jpg" alt=""
-            className="w-full object-cover" style={{ height: '130%', marginTop: '-15%' }}
+          <img src="/images/church/congregation.jpg" alt=""
+            className="w-full h-full object-cover"
             onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
       </div>

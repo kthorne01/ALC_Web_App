@@ -1,21 +1,20 @@
 import React, { useRef, useEffect } from 'react';
 
-const PhotoSlot = ({ src, style = {} }) => (
-  <div className="overflow-hidden bg-zinc-300" style={{ mixBlendMode: 'multiply', ...style }}>
-    <img src={src} alt="" className="w-full h-full object-cover" onError={(e) => { e.target.style.display = 'none'; }} />
-  </div>
-);
-
 const MissionV2 = () => {
-  const photo1Ref = useRef(null);
-  const photo2Ref = useRef(null);
+  const p1Box = useRef(null);
+  const p1Img = useRef(null);
+  const p2Box = useRef(null);
+  const p2Img = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.1}px)`;
-      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.18}px)`;
+      if (p1Box.current) p1Box.current.style.transform = `translateY(${y * -0.1}px)`;
+      if (p2Box.current) p2Box.current.style.transform = `translateY(${y * -0.18}px)`;
+      if (p1Img.current) p1Img.current.style.transform = `translateY(${y * 0.06}px)`;
+      if (p2Img.current) p2Img.current.style.transform = `translateY(${y * 0.10}px)`;
     };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -61,11 +60,20 @@ const MissionV2 = () => {
         </div>
       </div>
 
-      <div ref={photo1Ref} className="absolute z-10 hidden lg:block" style={{ top: '8%', right: '2%', width: '22%' }}>
-        <PhotoSlot src="/images/church/mission.jpg" style={{ aspectRatio: '3/4' }} />
+      {/* Photo 1 */}
+      <div ref={p1Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
+        style={{ mixBlendMode: 'multiply', top: '8%', right: '2%', width: '22%', aspectRatio: '3/4' }}>
+        <img ref={p1Img} src="/images/church/mission.jpg" alt=""
+          className="w-full object-cover" style={{ height: '130%', marginTop: '-15%' }}
+          onError={(e) => { e.target.style.display = 'none'; }} />
       </div>
-      <div ref={photo2Ref} className="absolute z-10 hidden lg:block" style={{ bottom: '6%', right: '26%', width: '14%' }}>
-        <PhotoSlot src="/images/church/community.jpg" style={{ aspectRatio: '1/1' }} />
+
+      {/* Photo 2 */}
+      <div ref={p2Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
+        style={{ mixBlendMode: 'multiply', bottom: '6%', right: '26%', width: '14%', aspectRatio: '1/1' }}>
+        <img ref={p2Img} src="/images/church/community.jpg" alt=""
+          className="w-full object-cover" style={{ height: '130%', marginTop: '-15%' }}
+          onError={(e) => { e.target.style.display = 'none'; }} />
       </div>
     </section>
   );

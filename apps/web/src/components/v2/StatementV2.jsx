@@ -1,21 +1,20 @@
 import React, { useRef, useEffect } from 'react';
 
-const PhotoSlot = ({ src, style = {} }) => (
-  <div className="overflow-hidden bg-zinc-300" style={{ mixBlendMode: 'multiply', ...style }}>
-    <img src={src} alt="" className="w-full h-full object-cover" onError={(e) => { e.target.style.display = 'none'; }} />
-  </div>
-);
-
 const StatementV2 = () => {
-  const photo1Ref = useRef(null);
-  const photo2Ref = useRef(null);
+  const p1Box = useRef(null);
+  const p1Img = useRef(null);
+  const p2Box = useRef(null);
+  const p2Img = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.08}px)`;
-      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.14}px)`;
+      if (p1Box.current) p1Box.current.style.transform = `translateY(${y * -0.08}px)`;
+      if (p2Box.current) p2Box.current.style.transform = `translateY(${y * -0.14}px)`;
+      if (p1Img.current) p1Img.current.style.transform = `translateY(${y * 0.05}px)`;
+      if (p2Img.current) p2Img.current.style.transform = `translateY(${y * 0.09}px)`;
     };
+    onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -35,18 +34,26 @@ const StatementV2 = () => {
         </p>
 
         <h2 className="font-heading font-bold uppercase relative z-20" style={{ lineHeight: 0.9, letterSpacing: '-0.02em' }}>
-          <span className="block text-black"  style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>I CAME THAT</span>
-          <span className="block text-black"  style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>THEY MAY HAVE</span>
-          <span className="block text-gold"   style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>LIFE,</span>
+          <span className="block text-black"   style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>I CAME THAT</span>
+          <span className="block text-black"   style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>THEY MAY HAVE</span>
+          <span className="block text-gold"    style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>LIFE,</span>
           <span className="block text-black/60" style={{ fontSize: 'clamp(28px, 4.5vw, 70px)', marginTop: '0.2em' }}>AND HAVE IT MORE ABUNDANTLY.</span>
         </h2>
 
-        <div ref={photo1Ref} className="absolute z-10 hidden lg:block" style={{ top: '5%', left: '-2%', width: '18%' }}>
-          <PhotoSlot src="/images/church/worship.jpg" style={{ aspectRatio: '3/4' }} />
+        {/* Photo 1 */}
+        <div ref={p1Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
+          style={{ mixBlendMode: 'multiply', top: '5%', left: '-2%', width: '18%', aspectRatio: '3/4' }}>
+          <img ref={p1Img} src="/images/church/worship.jpg" alt=""
+            className="w-full object-cover" style={{ height: '130%', marginTop: '-15%' }}
+            onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
 
-        <div ref={photo2Ref} className="absolute z-10 hidden lg:block" style={{ bottom: '-5%', right: '3%', width: '15%' }}>
-          <PhotoSlot src="/images/church/congregation.jpg" style={{ aspectRatio: '1/1' }} />
+        {/* Photo 2 */}
+        <div ref={p2Box} className="absolute z-10 hidden lg:block overflow-hidden bg-zinc-300"
+          style={{ mixBlendMode: 'multiply', bottom: '-5%', right: '3%', width: '15%', aspectRatio: '1/1' }}>
+          <img ref={p2Img} src="/images/church/congregation.jpg" alt=""
+            className="w-full object-cover" style={{ height: '130%', marginTop: '-15%' }}
+            onError={(e) => { e.target.style.display = 'none'; }} />
         </div>
       </div>
     </section>

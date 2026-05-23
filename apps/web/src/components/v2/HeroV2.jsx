@@ -55,7 +55,7 @@ const HeroV2 = () => {
       {/* Video — smaller, lower-right, absolutely positioned */}
       <div
         className="absolute hidden lg:flex flex-col gap-3"
-        style={{ right: '2%', bottom: '10%', width: '19%', zIndex: 20 }}
+        style={{ right: '2%', bottom: '5%', width: '19%', zIndex: 20 }}
       >
         <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">Latest Sermon</p>
         <a href="#sermons" className="text-black/70 hover:text-gold text-xs tracking-[0.15em] uppercase transition-colors flex items-center gap-2 group">

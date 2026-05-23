@@ -7,8 +7,8 @@ const HeroV2 = () => {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.13}px)`;
-      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.21}px)`;
+      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.15}px)`;
+      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.26}px)`;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -22,7 +22,7 @@ const HeroV2 = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-transparent" id="hero">
+    <section className="relative min-h-screen flex flex-col bg-transparent overflow-visible" id="hero">
 
       {/* Left edge word */}
       <span
@@ -34,60 +34,71 @@ const HeroV2 = () => {
 
       <div className="flex-1 flex flex-col lg:flex-row pt-20">
 
-        {/* Left column: headline + photos scattered below */}
-        <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14">
+        {/* Left column: headline + photos floating behind it */}
+        <div className="flex-1 relative px-10 lg:px-16 py-10 lg:py-14">
 
-          <p className="text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
+          {/* Photo 1 — large portrait, floating right of headline, behind text */}
+          <div
+            ref={photo1Ref}
+            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
+            style={{
+              mixBlendMode: 'multiply',
+              top: '8%',
+              right: '2%',
+              width: '36%',
+              aspectRatio: '3/4',
+              zIndex: 10,
+            }}
+          >
+            <img
+              src="/images/hero/hero-worship.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+          </div>
+
+          {/* Photo 2 — smaller, lower left, scrolls faster */}
+          <div
+            ref={photo2Ref}
+            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
+            style={{
+              mixBlendMode: 'multiply',
+              bottom: '4%',
+              left: '8%',
+              width: '20%',
+              aspectRatio: '4/5',
+              zIndex: 10,
+            }}
+          >
+            <img
+              src="/images/hero/hero-community.jpg"
+              alt=""
+              className="w-full h-full object-cover"
+              onError={(e) => { e.target.style.display = 'none'; }}
+            />
+          </div>
+
+          {/* Headline — text always in front of photos */}
+          <p className="relative text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium" style={{ zIndex: 20 }}>
             <span className="text-gold">[ </span>
             Abundant Life Church — Rock Hill, SC
             <span className="text-gold"> ]</span>
           </p>
 
           <h1
-            className="font-heading font-bold uppercase"
-            style={{ lineHeight: 0.88, letterSpacing: '-0.02em' }}
+            className="relative font-heading font-bold uppercase"
+            style={{ lineHeight: 0.88, letterSpacing: '-0.02em', zIndex: 20 }}
           >
             <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>HOME OF</span>
             <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>THE LIVING</span>
             <span className="block text-gold"  style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
           </h1>
 
-          {/* Photos scattered below the headline — asymmetric, no symmetry */}
-          <div className="hidden lg:flex items-start mt-10" style={{ gap: '1.5rem' }}>
-
-            {/* Photo 1 — taller portrait, sits at normal height */}
-            <div
-              ref={photo1Ref}
-              className="overflow-hidden bg-zinc-300 flex-shrink-0"
-              style={{ mixBlendMode: 'multiply', width: '40%', aspectRatio: '3/4' }}
-            >
-              <img
-                src="/images/hero/hero-worship.jpg"
-                alt=""
-                className="w-full h-full object-cover"
-                onError={(e) => { e.target.style.display = 'none'; }}
-              />
-            </div>
-
-            {/* Photo 2 — shorter square, dropped down so the tops don't align */}
-            <div
-              ref={photo2Ref}
-              className="overflow-hidden bg-zinc-300 flex-shrink-0"
-              style={{ mixBlendMode: 'multiply', width: '23%', aspectRatio: '4/5', marginTop: '3.5rem' }}
-            >
-              <img
-                src="/images/hero/hero-community.jpg"
-                alt=""
-                className="w-full h-full object-cover"
-                onError={(e) => { e.target.style.display = 'none'; }}
-              />
-            </div>
-
-          </div>
         </div>
 
         {/* Right column: ONLY the video + label */}
-        <div className="lg:w-[36%] xl:w-[38%] flex flex-col px-10 lg:px-8 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4">
+        <div className="lg:w-[36%] xl:w-[38%] flex flex-col px-10 lg:px-8 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4" style={{ zIndex: 20 }}>
           <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">
             Latest Sermon
           </p>
@@ -114,7 +125,7 @@ const HeroV2 = () => {
       </div>
 
       {/* Bottom bracket CTAs */}
-      <div className="border-t border-black/10 py-5 px-10 lg:px-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10">
+      <div className="relative border-t border-black/10 py-5 px-10 lg:px-16 flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-10" style={{ zIndex: 20 }}>
         {ctaLinks.map((cta) => (
           <a key={cta.label} href={cta.href}
             className="text-black/50 hover:text-gold text-xs tracking-[0.2em] uppercase transition-colors duration-200 font-medium group">

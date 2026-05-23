@@ -7,9 +7,10 @@ const AboutSection = () => {
     const onScroll = () => {
       if (imgRef.current) {
         const y = window.scrollY;
-        imgRef.current.style.transform = `scale(1.15) translateY(${y * -0.06}px)`;
+        imgRef.current.style.transform = `scale(1.15) translateY(${y * -0.12}px)`;
       }
     };
+    onScroll(); // set initial position immediately
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
@@ -26,7 +27,6 @@ const AboutSection = () => {
           className="absolute inset-0 w-full h-full object-cover"
           style={{
             objectPosition: 'center 25%',
-            transform: 'scale(1.15)',
             transformOrigin: 'center top',
           }}
           onError={(e) => { e.target.style.display = 'none'; }}

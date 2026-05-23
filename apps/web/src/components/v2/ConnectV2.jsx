@@ -12,7 +12,7 @@ const ConnectV2 = () => (
 
     <div className="flex flex-col lg:flex-row">
       {/* Left — In Person */}
-      <div className="flex-1 px-10 lg:px-16 py-20 lg:py-28 relative border-b lg:border-b-0 lg:border-r border-black/10">
+      <div className="flex-1 flex flex-col px-10 lg:px-16 py-20 lg:py-28 relative border-b lg:border-b-0 lg:border-r border-black/10">
         <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
           <span className="text-gold">[ </span>Join Us<span className="text-gold"> ]</span>
         </p>
@@ -39,11 +39,11 @@ const ConnectV2 = () => (
           <span className="text-gold/60 group-hover:text-gold">( </span>Plan Your Visit ↗<span className="text-gold/60 group-hover:text-gold"> )</span>
         </a>
 
-        <PhotoSlot src="/images/church/in-person.jpg" style={{ aspectRatio: '16/9', marginTop: '2.5rem' }} />
+        <PhotoSlot src="/images/church/in-person.jpg" style={{ aspectRatio: '16/9', marginTop: 'auto', paddingTop: '2.5rem' }} />
       </div>
 
       {/* Right — Online */}
-      <div className="flex-1 px-10 lg:px-16 py-20 lg:py-28 relative">
+      <div className="flex-1 flex flex-col px-10 lg:px-16 py-20 lg:py-28 relative">
         <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
           <span className="text-gold">[ </span>Wherever You Are<span className="text-gold"> ]</span>
         </p>

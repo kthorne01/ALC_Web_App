@@ -114,13 +114,18 @@ const HeroV2 = () => {
               <span className="text-gold/60 group-hover:text-gold transition-colors"> )</span>
             </span>
           </a>
-          {/* Sermon thumbnail — subtle parallax */}
-          <motion.div style={{ y: sermonY }}>
-            <PhotoSlot
-              src="/images/hero/sermon-thumb.jpg"
-              className="w-full"
-              style={{ aspectRatio: '16/9' }}
-            />
+          {/* Sermon video — subtle parallax */}
+          <motion.div style={{ y: sermonY }} className="w-full">
+            <div style={{ aspectRatio: '16/9', position: 'relative' }}>
+              <iframe
+                src="https://www.youtube.com/embed/YdjlUysRqN0"
+                title="Latest Sermon"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 'none' }}
+              />
+            </div>
           </motion.div>
         </div>
       </div>

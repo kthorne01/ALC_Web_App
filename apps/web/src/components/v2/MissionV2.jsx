@@ -24,13 +24,6 @@ const MissionV2 = () => {
 
   return (
     <section className="relative py-24 lg:py-36 px-10 lg:px-16 bg-transparent overflow-hidden">
-      <span
-        className="absolute left-1 top-1/2 font-heading font-bold text-black/10 text-[11px] tracking-[0.5em] uppercase select-none pointer-events-none"
-        style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
-      >
-        MISSION
-      </span>
-
       <div className="relative max-w-5xl">
         <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
           <span className="text-gold">[ </span>Why We Exist<span className="text-gold"> ]</span>

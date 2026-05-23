@@ -13,11 +13,6 @@ const ConnectV2 = () => (
     <div className="flex flex-col lg:flex-row">
       {/* Left — In Person */}
       <div className="flex-1 px-10 lg:px-16 py-20 lg:py-28 relative border-b lg:border-b-0 lg:border-r border-black/10">
-        <span className="absolute left-1 top-1/2 font-heading font-bold text-black/10 text-[11px] tracking-[0.5em] uppercase select-none pointer-events-none"
-          style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}>
-          LOCAL
-        </span>
-
         <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-5 font-medium">
           <span className="text-gold">[ </span>Join Us<span className="text-gold"> ]</span>
         </p>

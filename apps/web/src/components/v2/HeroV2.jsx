@@ -24,13 +24,6 @@ const HeroV2 = () => {
   return (
     <section className="relative min-h-screen flex flex-col bg-transparent" id="hero">
 
-      <span
-        className="absolute left-1 top-1/2 font-heading font-bold text-black/10 text-[11px] tracking-[0.5em] uppercase select-none pointer-events-none z-0"
-        style={{ writingMode: 'vertical-rl', transform: 'translateY(-50%) rotate(180deg)' }}
-      >
-        HOME
-      </span>
-
       {/* Photo 1 — large portrait, floats right behind headline */}
       <div
         ref={p1Box}

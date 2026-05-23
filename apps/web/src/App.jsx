@@ -4,6 +4,7 @@ import { Toaster } from 'sonner';
 import HomePage from '@/pages/HomePage.jsx';
 import HomePageV2 from '@/pages/HomePageV2.jsx';
 import HomePageV3 from '@/pages/HomePageV3.jsx';
+import HomePageV4 from '@/pages/HomePageV4.jsx';
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/" element={<HomePage />} />
         <Route path="/v2" element={<HomePageV2 />} />
         <Route path="/v3" element={<HomePageV3 />} />
+        <Route path="/v4" element={<HomePageV4 />} />
       </Routes>
     </>
   );

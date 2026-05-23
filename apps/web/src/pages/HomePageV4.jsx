@@ -4,6 +4,7 @@ import HeroV4 from '@/components/v4/HeroV4';
 import StatementV4 from '@/components/v4/StatementV4';
 import SermonsV4 from '@/components/v4/SermonsV4';
 import ConnectV4 from '@/components/v4/ConnectV4';
+import PastorV4 from '@/components/v4/PastorV4';
 import FooterV2 from '@/components/v2/FooterV2';
 
 const HomePageV4 = () => (
@@ -12,6 +13,7 @@ const HomePageV4 = () => (
     <main>
       <HeroV4 />
       <StatementV4 />
+      <PastorV4 />
       <SermonsV4 />
       <ConnectV4 />
     </main>

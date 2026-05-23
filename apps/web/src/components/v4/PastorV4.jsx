@@ -1,16 +1,16 @@
 import React from 'react';
 
 const PastorV4 = () => (
-  <section className="bg-white py-24 lg:py-36 px-10 lg:px-16" id="about">
+  <section className="bg-zinc-950 py-24 lg:py-36 px-10 lg:px-16" id="about">
     <div className="max-w-3xl mx-auto flex flex-col items-center text-center">
 
-      <h2 className="font-heading font-bold uppercase text-black tracking-[0.08em] mb-12"
+      <h2 className="font-heading font-bold uppercase text-white tracking-[0.08em] mb-12"
         style={{ fontSize: 'clamp(22px, 3vw, 36px)' }}>
         Meet Our Pastor
       </h2>
 
       {/* Photo — centered, portrait */}
-      <div className="w-full max-w-lg overflow-hidden bg-zinc-200 mb-10">
+      <div className="w-full max-w-lg overflow-hidden bg-zinc-800 mb-10">
         <img
           src="/images/team/pastor.jpg"
           alt="Pastor"
@@ -24,7 +24,7 @@ const PastorV4 = () => (
 
       {/* Name */}
       <h3
-        className="font-heading font-bold uppercase text-black mb-1"
+        className="font-heading font-bold uppercase text-white mb-1"
         style={{ fontSize: 'clamp(28px, 4vw, 52px)', lineHeight: 0.9, letterSpacing: '-0.02em' }}
       >
         APOSTLE
@@ -37,13 +37,13 @@ const PastorV4 = () => (
       </h3>
 
       {/* Bio */}
-      <p className="text-black/50 text-sm leading-relaxed max-w-xl mb-10">
+      <p className="text-white/50 text-sm leading-relaxed max-w-xl mb-10">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </p>
 
       <a
         href="#connect"
-        className="inline-block font-heading font-bold text-xs tracking-[0.3em] uppercase text-black/40 hover:text-gold transition-colors group"
+        className="inline-block font-heading font-bold text-xs tracking-[0.3em] uppercase text-white/40 hover:text-gold transition-colors group"
       >
         <span className="text-gold/60 group-hover:text-gold">( </span>
         Get Connected ↗

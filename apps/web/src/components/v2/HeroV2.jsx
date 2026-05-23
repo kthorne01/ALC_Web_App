@@ -50,24 +50,7 @@ const HeroV2 = () => {
           >
             <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>HOME OF</span>
 
-            {/* "THE LIVING" — photo shows through the letter shapes (background-clip: text) */}
-            {/* Black fallback underneath so text is never invisible */}
-            <span className="block relative" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>
-              <span className="text-black" aria-hidden="true" style={{ userSelect: 'none' }}>THE LIVING</span>
-              <span
-                className="absolute inset-0"
-                style={{
-                  backgroundImage: 'url(/images/hero/hero-worship.jpg)',
-                  backgroundSize: '110% auto',
-                  backgroundPosition: '55% 35%',
-                  WebkitBackgroundClip: 'text',
-                  backgroundClip: 'text',
-                  color: 'transparent',
-                }}
-              >
-                THE LIVING
-              </span>
-            </span>
+            <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>THE LIVING</span>
 
             <span className="block text-gold" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
           </h1>

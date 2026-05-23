@@ -5,7 +5,7 @@ const StatementV3 = () => (
     {/* Giant watermark word */}
     <div
       className="absolute inset-0 flex items-center justify-center font-heading font-bold text-black/[0.03] select-none pointer-events-none leading-none"
-      style={{ fontSize: 'clamp(140px, 25vw, 400px)', letterSpacing: '-0.05em' }}
+      style={{ fontSize: 'clamp(220px, 45vw, 700px)', letterSpacing: '-0.05em' }}
     >
       LIFE
     </div>

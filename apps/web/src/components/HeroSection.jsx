@@ -2,6 +2,9 @@ import React, { useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
+// SVG noise texture rendered as a data URI — gives the background visible grain
+const noiseSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E";
+
 const HeroSection = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -9,25 +12,49 @@ const HeroSection = () => {
     offset: ['start start', 'end start'],
   });
 
-  // Background drifts down as you scroll up — classic parallax
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '25%']);
+  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
+  const noiseY = useTransform(scrollYProgress, [0, 1], ['0%', '18%']);
 
   return (
-    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Background image — parallax */}
+    <section ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0d0c0a]">
+
+      {/* Photo layer — moves fastest (full parallax when photo is added) */}
       <motion.div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
           backgroundImage: "url('/images/hero/hero-bg.jpg')",
           y: bgY,
-          scale: 1.15,
+          scale: 1.2,
         }}
       />
 
-      {/* Gradient overlay — dark cinematic feel */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      {/* Texture layer — dark stone/paper grain that visibly moves */}
+      <motion.div
+        className="absolute inset-0 will-change-transform"
+        style={{
+          y: noiseY,
+          scale: 1.2,
+          backgroundImage: `url("${noiseSrc}")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '400px 400px',
+          opacity: 0.18,
+          mixBlendMode: 'overlay',
+        }}
+      />
 
-      {/* Subtle gold glow at bottom */}
+      {/* Warm radial glow — gives depth to the dark background */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            'radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,168,76,0.07) 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 20% 80%, rgba(255,255,255,0.03) 0%, transparent 60%)',
+        }}
+      />
+
+      {/* Cinematic gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/85" />
+
+      {/* Gold glow at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black to-transparent" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 

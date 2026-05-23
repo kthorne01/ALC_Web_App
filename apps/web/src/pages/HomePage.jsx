@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-black">
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: '#0d0c0a' }}>
       <Helmet>
         <title>Abundant Life Church | Home of The Living Churches</title>
         <meta

@@ -107,7 +107,7 @@ const HeroSection = () => {
           <span className="text-gold/50 text-[9px] tracking-[0.4em] uppercase">John 10:10</span>
           <div className="h-px bg-gold/30 w-12" />
         </div>
-        <p className="text-white/40 text-xs sm:text-sm italic font-sans tracking-wide">
+        <p className="text-white/40 text-sm sm:text-xl md:text-2xl italic font-sans tracking-wide">
           "I came that they may have life, and have it more abundantly."
         </p>
       </div>

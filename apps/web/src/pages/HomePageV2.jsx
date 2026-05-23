@@ -8,9 +8,6 @@ import ConnectV2 from '@/components/v2/ConnectV2';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import FooterV2 from '@/components/v2/FooterV2';
 
-// SVG noise for paper texture
-const noiseSrc = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.18'/%3E%3C/svg%3E";
-
 const HomePageV2 = () => (
   <div className="flex flex-col min-h-screen relative">
 
@@ -18,10 +15,10 @@ const HomePageV2 = () => (
     <div
       className="fixed inset-0 -z-10"
       style={{
-        backgroundColor: '#f0ebe0',
-        backgroundImage: `url("${noiseSrc}")`,
-        backgroundSize: '400px 400px',
-        backgroundRepeat: 'repeat',
+        backgroundImage: 'url("/images/texturedbackground.png")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
       }}
     />
 

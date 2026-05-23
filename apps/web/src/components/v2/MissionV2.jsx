@@ -1,14 +1,16 @@
 import React, { useRef, useEffect } from 'react';
 
 const MissionV2 = () => {
+  const sectionRef = useRef(null);
   const p1Box = useRef(null);
   const p2Box = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
-      if (p1Box.current) p1Box.current.style.transform = `translateY(${y * -0.1}px)`;
-      if (p2Box.current) p2Box.current.style.transform = `translateY(${y * -0.18}px)`;
+      if (!sectionRef.current) return;
+      const offset = sectionRef.current.getBoundingClientRect().top;
+      if (p1Box.current) p1Box.current.style.transform = `translateY(${offset * -0.28}px)`;
+      if (p2Box.current) p2Box.current.style.transform = `translateY(${offset * -0.45}px)`;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -23,7 +25,7 @@ const MissionV2 = () => {
   ];
 
   return (
-    <section className="relative py-24 lg:py-36 px-10 lg:px-16 bg-transparent overflow-hidden">
+    <section ref={sectionRef} className="relative py-24 lg:py-36 px-10 lg:px-16 bg-transparent overflow-hidden">
       <div className="relative max-w-5xl">
         <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
           <span className="text-gold">[ </span>Why We Exist<span className="text-gold"> ]</span>

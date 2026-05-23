@@ -1,14 +1,16 @@
 import React, { useRef, useEffect } from 'react';
 
 const HeroV2 = () => {
+  const sectionRef = useRef(null);
   const p1Box = useRef(null);
   const p2Box = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
-      const y = window.scrollY;
-      if (p1Box.current) p1Box.current.style.transform = `translateY(${y * -0.15}px)`;
-      if (p2Box.current) p2Box.current.style.transform = `translateY(${y * -0.26}px)`;
+      if (!sectionRef.current) return;
+      const offset = sectionRef.current.getBoundingClientRect().top;
+      if (p1Box.current) p1Box.current.style.transform = `translateY(${offset * -0.30}px)`;
+      if (p2Box.current) p2Box.current.style.transform = `translateY(${offset * -0.50}px)`;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -22,7 +24,7 @@ const HeroV2 = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-transparent" id="hero">
+    <section ref={sectionRef} className="relative min-h-screen flex flex-col bg-transparent" id="hero">
 
       {/* Photo 1 — large portrait, floats right behind headline */}
       <div

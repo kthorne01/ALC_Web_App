@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
-/* Reusable dark photo slot — shows a dark gradient until a real photo is added.
-   Photos load from public/images/ — see public/images/README.txt for instructions. */
 const PhotoSlot = ({ src, className = '', style = {} }) => (
   <div
     className={`overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900 ${className}`}
@@ -17,6 +16,16 @@ const PhotoSlot = ({ src, className = '', style = {} }) => (
 );
 
 const HeroV2 = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start start', 'end start'],
+  });
+
+  const photo1Y = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const photo2Y = useTransform(scrollYProgress, [0, 1], [0, -130]);
+  const sermonY = useTransform(scrollYProgress, [0, 1], [0, -50]);
+
   const ctaLinks = [
     { label: 'Plan Your Visit', href: '#visit' },
     { label: 'Get Connected', href: '#connect' },
@@ -24,7 +33,7 @@ const HeroV2 = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col bg-transparent" id="hero">
+    <section ref={ref} className="relative min-h-screen flex flex-col bg-transparent" id="hero">
       {/* Left edge word */}
       <span
         className="absolute left-1 top-1/2 -translate-y-1/2 font-heading font-bold text-white/8 text-[11px] tracking-[0.5em] uppercase select-none pointer-events-none z-0"
@@ -64,19 +73,27 @@ const HeroV2 = () => {
             </span>
           </h1>
 
-          {/* Floating photo 1 — overlaps "LIFE" from left */}
-          <PhotoSlot
-            src="/images/hero/hero-worship.jpg"
+          {/* Floating photo 1 — parallax */}
+          <motion.div
             className="absolute z-20 hidden lg:block"
-            style={{ top: '32%', left: '4%', width: '22%', aspectRatio: '4/5' }}
-          />
+            style={{ top: '32%', left: '4%', width: '22%', y: photo1Y }}
+          >
+            <PhotoSlot
+              src="/images/hero/hero-worship.jpg"
+              style={{ aspectRatio: '4/5' }}
+            />
+          </motion.div>
 
-          {/* Floating photo 2 — overlaps "CHURCH" from right */}
-          <PhotoSlot
-            src="/images/hero/hero-community.jpg"
+          {/* Floating photo 2 — parallax (faster) */}
+          <motion.div
             className="absolute z-20 hidden lg:block"
-            style={{ bottom: '18%', left: '38%', width: '18%', aspectRatio: '1/1' }}
-          />
+            style={{ bottom: '18%', left: '38%', width: '18%', y: photo2Y }}
+          >
+            <PhotoSlot
+              src="/images/hero/hero-community.jpg"
+              style={{ aspectRatio: '1/1' }}
+            />
+          </motion.div>
         </div>
 
         {/* Right column: latest sermon box */}
@@ -97,12 +114,14 @@ const HeroV2 = () => {
               <span className="text-gold/60 group-hover:text-gold transition-colors"> )</span>
             </span>
           </a>
-          {/* Sermon thumbnail */}
-          <PhotoSlot
-            src="/images/hero/sermon-thumb.jpg"
-            className="w-full"
-            style={{ aspectRatio: '16/9' }}
-          />
+          {/* Sermon thumbnail — subtle parallax */}
+          <motion.div style={{ y: sermonY }}>
+            <PhotoSlot
+              src="/images/hero/sermon-thumb.jpg"
+              className="w-full"
+              style={{ aspectRatio: '16/9' }}
+            />
+          </motion.div>
         </div>
       </div>
 

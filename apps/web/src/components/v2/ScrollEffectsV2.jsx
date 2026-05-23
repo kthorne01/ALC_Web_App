@@ -1,18 +1,25 @@
 import React from 'react';
 
-/* Fixed page-level visual effects:
-   - Blur overlay at the top so content fades as it scrolls under the nav
-   - Thin gold vertical line on the right edge (decorative, like 2819's red line) */
 const ScrollEffectsV2 = () => (
   <>
-    {/* Top scroll blur — content blurs as it approaches the nav */}
+    {/* Blur layer — backdrop-filter blurs content as it scrolls under the nav */}
+    <div
+      className="fixed top-0 left-0 right-0 z-39 pointer-events-none"
+      style={{
+        height: '120px',
+        backdropFilter: 'blur(10px)',
+        WebkitBackdropFilter: 'blur(10px)',
+        WebkitMaskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 100%)',
+        maskImage: 'linear-gradient(to bottom, black 0%, black 30%, transparent 100%)',
+      }}
+    />
+
+    {/* Dark gradient on top of the blur so it fades to the page background color */}
     <div
       className="fixed top-0 left-0 right-0 z-40 pointer-events-none"
       style={{
-        height: '90px',
-        background: 'linear-gradient(to bottom, rgba(8,8,8,0.98) 0%, rgba(8,8,8,0) 100%)',
-        WebkitMaskImage: 'linear-gradient(to bottom, black 35%, transparent 100%)',
-        maskImage: 'linear-gradient(to bottom, black 35%, transparent 100%)',
+        height: '100px',
+        background: 'linear-gradient(to bottom, rgba(8,8,8,0.92) 0%, rgba(8,8,8,0.4) 60%, rgba(8,8,8,0) 100%)',
       }}
     />
 

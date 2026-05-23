@@ -41,7 +41,7 @@ const MissionV2 = () => {
           <span className="text-gold">[ </span>Why We Exist<span className="text-gold"> ]</span>
         </p>
 
-        <h2 className="font-heading font-bold uppercase relative z-10 mb-12" style={{ lineHeight: 0.9, letterSpacing: '-0.02em' }}>
+        <h2 className="font-heading font-bold uppercase relative z-20 mb-12" style={{ lineHeight: 0.9, letterSpacing: '-0.02em' }}>
           <span className="block text-black/40" style={{ fontSize: 'clamp(28px, 4vw, 56px)' }}>ALC EXISTS TO</span>
           <span className="block text-black"    style={{ fontSize: 'clamp(48px, 7.5vw, 120px)' }}>HELP PEOPLE</span>
           <span className="block text-gold"     style={{ fontSize: 'clamp(48px, 7.5vw, 120px)' }}>LIVE FULLY.</span>
@@ -61,10 +61,10 @@ const MissionV2 = () => {
         </div>
       </div>
 
-      <div ref={photo1Ref} className="absolute z-20 hidden lg:block" style={{ top: '8%', right: '2%', width: '22%' }}>
+      <div ref={photo1Ref} className="absolute z-10 hidden lg:block" style={{ top: '8%', right: '2%', width: '22%' }}>
         <PhotoSlot src="/images/church/mission.jpg" style={{ aspectRatio: '3/4' }} />
       </div>
-      <div ref={photo2Ref} className="absolute z-20 hidden lg:block" style={{ bottom: '6%', right: '26%', width: '14%' }}>
+      <div ref={photo2Ref} className="absolute z-10 hidden lg:block" style={{ bottom: '6%', right: '26%', width: '14%' }}>
         <PhotoSlot src="/images/church/community.jpg" style={{ aspectRatio: '1/1' }} />
       </div>
     </section>

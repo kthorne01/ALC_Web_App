@@ -34,18 +34,18 @@ const StatementV2 = () => {
           <span className="text-gold">[ </span>John 10:10<span className="text-gold"> ]</span>
         </p>
 
-        <h2 className="font-heading font-bold uppercase relative z-10" style={{ lineHeight: 0.9, letterSpacing: '-0.02em' }}>
+        <h2 className="font-heading font-bold uppercase relative z-20" style={{ lineHeight: 0.9, letterSpacing: '-0.02em' }}>
           <span className="block text-black"  style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>I CAME THAT</span>
           <span className="block text-black"  style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>THEY MAY HAVE</span>
           <span className="block text-gold"   style={{ fontSize: 'clamp(52px, 8.5vw, 130px)' }}>LIFE,</span>
           <span className="block text-black/60" style={{ fontSize: 'clamp(28px, 4.5vw, 70px)', marginTop: '0.2em' }}>AND HAVE IT MORE ABUNDANTLY.</span>
         </h2>
 
-        <div ref={photo1Ref} className="absolute z-20 hidden lg:block" style={{ top: '5%', left: '-2%', width: '18%' }}>
+        <div ref={photo1Ref} className="absolute z-10 hidden lg:block" style={{ top: '5%', left: '-2%', width: '18%' }}>
           <PhotoSlot src="/images/church/worship.jpg" style={{ aspectRatio: '3/4' }} />
         </div>
 
-        <div ref={photo2Ref} className="absolute z-20 hidden lg:block" style={{ bottom: '-5%', right: '3%', width: '15%' }}>
+        <div ref={photo2Ref} className="absolute z-10 hidden lg:block" style={{ bottom: '-5%', right: '3%', width: '15%' }}>
           <PhotoSlot src="/images/church/congregation.jpg" style={{ aspectRatio: '1/1' }} />
         </div>
       </div>

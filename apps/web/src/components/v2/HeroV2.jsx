@@ -55,29 +55,28 @@ const HeroV2 = () => {
             <span className="text-gold"> ]</span>
           </p>
 
-          {/* Headline — dark text, photos float on top (z-20 > z-10) */}
+          {/* Photos BEHIND text (z-10), text IN FRONT (z-20) */}
+          <div ref={photo1Ref} className="absolute z-10 hidden lg:block" style={{ top: '22%', left: '0%', width: '26%' }}>
+            <PhotoSlot src="/images/hero/hero-worship.jpg" style={{ aspectRatio: '4/5' }} />
+          </div>
+
+          <div ref={photo2Ref} className="absolute z-10 hidden lg:block" style={{ bottom: '10%', left: '32%', width: '22%' }}>
+            <PhotoSlot src="/images/hero/hero-community.jpg" style={{ aspectRatio: '1/1' }} />
+          </div>
+
+          {/* Headline — z-20 sits IN FRONT of photos */}
           <h1
-            className="font-heading font-bold uppercase relative z-10"
+            className="font-heading font-bold uppercase relative z-20"
             style={{ lineHeight: 0.88, letterSpacing: '-0.02em' }}
           >
             <span className="block text-black" style={{ fontSize: 'clamp(64px, 12vw, 190px)' }}>HOME OF</span>
             <span className="block text-black" style={{ fontSize: 'clamp(64px, 12vw, 190px)' }}>THE LIVING</span>
             <span className="block text-gold"  style={{ fontSize: 'clamp(64px, 12vw, 190px)' }}>CHURCHES.</span>
           </h1>
-
-          {/* Photo 1 — overlaps text (z-20) */}
-          <div ref={photo1Ref} className="absolute z-20 hidden lg:block" style={{ top: '28%', left: '2%', width: '24%' }}>
-            <PhotoSlot src="/images/hero/hero-worship.jpg" style={{ aspectRatio: '4/5' }} />
-          </div>
-
-          {/* Photo 2 — overlaps text (z-20) */}
-          <div ref={photo2Ref} className="absolute z-20 hidden lg:block" style={{ bottom: '15%', left: '36%', width: '20%' }}>
-            <PhotoSlot src="/images/hero/hero-community.jpg" style={{ aspectRatio: '1/1' }} />
-          </div>
         </div>
 
-        {/* Right column: latest sermon — wider */}
-        <div className="lg:w-80 xl:w-96 flex flex-col justify-center px-10 lg:px-8 pb-10 lg:pb-16 pt-0 lg:pt-24 gap-4">
+        {/* Right column: latest sermon */}
+        <div className="lg:w-[420px] xl:w-[480px] flex flex-col justify-center px-10 lg:px-10 pb-10 lg:pb-16 pt-0 lg:pt-24 gap-5">
           <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">
             Latest Sermon
           </p>

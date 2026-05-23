@@ -5,6 +5,7 @@ import HeroV2 from '@/components/v2/HeroV2';
 import StatementV2 from '@/components/v2/StatementV2';
 import MissionV2 from '@/components/v2/MissionV2';
 import ConnectV2 from '@/components/v2/ConnectV2';
+import TestimonialsSection from '@/components/TestimonialsSection';
 import FooterV2 from '@/components/v2/FooterV2';
 
 // SVG noise for paper texture
@@ -32,6 +33,7 @@ const HomePageV2 = () => (
       <StatementV2 />
       <MissionV2 />
       <ConnectV2 />
+      <TestimonialsSection />
     </main>
 
     <FooterV2 />

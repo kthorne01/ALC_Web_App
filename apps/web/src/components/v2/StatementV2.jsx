@@ -25,7 +25,7 @@ const StatementV2 = () => {
       </span>
 
       <div className="relative">
-        <p className="text-black/30 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
+        <p className="text-black/60 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
           <span className="text-gold">[ </span>John 10:10<span className="text-gold"> ]</span>
         </p>
 

@@ -65,7 +65,7 @@ const HeroV2 = () => {
         style={{ right: '2%', bottom: '10%', width: '19%', zIndex: 20 }}
       >
         <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">Latest Sermon</p>
-        <a href="#sermons" className="text-black/40 hover:text-gold text-xs tracking-[0.15em] uppercase transition-colors flex items-center gap-2 group">
+        <a href="#sermons" className="text-black/70 hover:text-gold text-xs tracking-[0.15em] uppercase transition-colors flex items-center gap-2 group">
           <span className="w-4 h-4 rounded-full border border-current flex items-center justify-center text-[7px] flex-shrink-0">▶</span>
           <span>
             <span className="text-gold/70 group-hover:text-gold">( </span>WATCH NOW ↗<span className="text-gold/70 group-hover:text-gold"> )</span>
@@ -121,7 +121,7 @@ const HeroV2 = () => {
             {ctaLinks.map((cta) => (
               <a key={cta.label} href={cta.href}
                 className="text-black/50 hover:text-gold tracking-[0.25em] uppercase transition-colors duration-200 font-medium font-heading group"
-                style={{ fontSize: 'clamp(13px, 1.4vw, 20px)' }}>
+                style={{ fontSize: 'clamp(16px, 1.8vw, 26px)' }}>
                 <span className="text-gold/60 group-hover:text-gold">( </span>{cta.label}<span className="text-gold/60 group-hover:text-gold"> )</span>
               </a>
             ))}

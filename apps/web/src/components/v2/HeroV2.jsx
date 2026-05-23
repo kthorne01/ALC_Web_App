@@ -7,8 +7,8 @@ const HeroV2 = () => {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.14}px)`;
-      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.22}px)`;
+      if (photo1Ref.current) photo1Ref.current.style.transform = `translateY(${y * -0.13}px)`;
+      if (photo2Ref.current) photo2Ref.current.style.transform = `translateY(${y * -0.21}px)`;
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -34,73 +34,60 @@ const HeroV2 = () => {
 
       <div className="flex-1 flex flex-col lg:flex-row pt-20">
 
-        {/* Left column: headline + floating photos */}
-        <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14 relative overflow-hidden">
+        {/* Left column: headline + photos scattered below */}
+        <div className="flex-1 flex flex-col px-10 lg:px-16 py-10 lg:py-14">
 
-          <p className="text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium relative z-20">
+          <p className="text-black/35 text-[11px] tracking-[0.4em] uppercase mb-6 font-medium">
             <span className="text-gold">[ </span>
             Abundant Life Church — Rock Hill, SC
             <span className="text-gold"> ]</span>
           </p>
 
-          {/* Headline */}
           <h1
-            className="font-heading font-bold uppercase relative z-20"
+            className="font-heading font-bold uppercase"
             style={{ lineHeight: 0.88, letterSpacing: '-0.02em' }}
           >
             <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>HOME OF</span>
-
             <span className="block text-black" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>THE LIVING</span>
-
-            <span className="block text-gold" style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
+            <span className="block text-gold"  style={{ fontSize: 'clamp(60px, 10vw, 160px)' }}>CHURCHES.</span>
           </h1>
 
-          {/* Photo 1 — tall portrait, floats to the right behind the headline */}
-          <div
-            ref={photo1Ref}
-            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
-            style={{
-              mixBlendMode: 'multiply',
-              top: '8%',
-              right: '4%',
-              width: '26%',
-              aspectRatio: '3/4',
-              zIndex: 10,
-            }}
-          >
-            <img
-              src="/images/hero/hero-worship.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-          </div>
+          {/* Photos scattered below the headline — asymmetric, no symmetry */}
+          <div className="hidden lg:flex items-start mt-10" style={{ gap: '1.5rem' }}>
 
-          {/* Photo 2 — small square, lower, scrolls faster */}
-          <div
-            ref={photo2Ref}
-            className="absolute hidden lg:block overflow-hidden bg-zinc-300"
-            style={{
-              mixBlendMode: 'multiply',
-              bottom: '8%',
-              right: '30%',
-              width: '16%',
-              aspectRatio: '1/1',
-              zIndex: 10,
-            }}
-          >
-            <img
-              src="/images/hero/hero-community.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-              onError={(e) => { e.target.style.display = 'none'; }}
-            />
-          </div>
+            {/* Photo 1 — taller portrait, sits at normal height */}
+            <div
+              ref={photo1Ref}
+              className="overflow-hidden bg-zinc-300 flex-shrink-0"
+              style={{ mixBlendMode: 'multiply', width: '40%', aspectRatio: '3/4' }}
+            >
+              <img
+                src="/images/hero/hero-worship.jpg"
+                alt=""
+                className="w-full h-full object-cover"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
 
+            {/* Photo 2 — shorter square, dropped down so the tops don't align */}
+            <div
+              ref={photo2Ref}
+              className="overflow-hidden bg-zinc-300 flex-shrink-0"
+              style={{ mixBlendMode: 'multiply', width: '23%', aspectRatio: '4/5', marginTop: '3.5rem' }}
+            >
+              <img
+                src="/images/hero/hero-community.jpg"
+                alt=""
+                className="w-full h-full object-cover"
+                onError={(e) => { e.target.style.display = 'none'; }}
+              />
+            </div>
+
+          </div>
         </div>
 
-        {/* Right column: latest sermon + video (standard 16:9) */}
-        <div className="lg:w-[34%] xl:w-[35%] flex flex-col px-10 lg:px-8 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4">
+        {/* Right column: ONLY the video + label */}
+        <div className="lg:w-[36%] xl:w-[38%] flex flex-col px-10 lg:px-8 pb-6 lg:pb-10 pt-0 lg:pt-24 gap-4">
           <p className="text-gold text-[10px] tracking-[0.55em] uppercase font-bold">
             Latest Sermon
           </p>
@@ -113,7 +100,6 @@ const HeroV2 = () => {
             </span>
           </a>
 
-          {/* Video — 16:9 aspect ratio, naturally proportional to column width */}
           <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
             <iframe
               src="https://www.youtube.com/embed/YdjlUysRqN0"

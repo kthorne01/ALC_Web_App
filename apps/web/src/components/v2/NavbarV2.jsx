@@ -9,6 +9,13 @@ const NAV_LINKS = [
   { label: 'Prayer Request', href: '#prayer' },
 ];
 
+const VERSION_LINKS = [
+  { label: 'V1', href: '/' },
+  { label: 'V2', href: '/v2' },
+  { label: 'V3', href: '/v3' },
+  { label: 'V4', href: '/v4' },
+];
+
 const NavbarV2 = () => {
   const [open, setOpen] = useState(false);
 
@@ -28,13 +35,28 @@ const NavbarV2 = () => {
           </span>
         </a>
 
-        <button
-          onClick={() => setOpen(true)}
-          className="text-black hover:text-gold transition-colors p-2 pointer-events-auto"
-          aria-label="Open menu"
-        >
-          <Menu size={22} strokeWidth={1.5} />
-        </button>
+        <div className="flex items-center gap-3 pointer-events-auto">
+          {/* Version switcher */}
+          <div className="hidden md:flex items-center gap-1 border border-black/15 px-2 py-1">
+            <span className="text-black/25 text-[9px] tracking-[0.3em] uppercase mr-1">Preview</span>
+            {VERSION_LINKS.map((v) => (
+              <a
+                key={v.label}
+                href={v.href}
+                className="text-black/40 hover:text-gold text-[10px] font-bold tracking-[0.1em] uppercase px-1.5 py-0.5 hover:bg-gold/10 transition-colors"
+              >
+                {v.label}
+              </a>
+            ))}
+          </div>
+          <button
+            onClick={() => setOpen(true)}
+            className="text-black hover:text-gold transition-colors p-2"
+            aria-label="Open menu"
+          >
+            <Menu size={22} strokeWidth={1.5} />
+          </button>
+        </div>
       </nav>
 
       {/* Fullscreen overlay menu */}
@@ -68,8 +90,7 @@ const NavbarV2 = () => {
             ))}
           </div>
 
-          {/* Bottom CTA */}
-          <div className="mt-auto pb-4">
+          <div className="mt-auto pb-4 flex flex-col gap-4">
             <a
               href="#visit"
               onClick={() => setOpen(false)}
@@ -77,6 +98,18 @@ const NavbarV2 = () => {
             >
               Plan Your Visit
             </a>
+            <div className="flex items-center gap-2">
+              <span className="text-white/25 text-[9px] tracking-[0.3em] uppercase">Preview:</span>
+              {VERSION_LINKS.map((v) => (
+                <a
+                  key={v.label}
+                  href={v.href}
+                  className="text-white/40 hover:text-gold text-xs font-bold tracking-[0.1em] uppercase px-2 py-1 border border-white/10 hover:border-gold/30 transition-colors"
+                >
+                  {v.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}

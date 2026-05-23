@@ -12,9 +12,9 @@ const App = () => {
       <Toaster position="top-right" richColors />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/v2" element={<HomePageV2 />} />
+        <Route path="/v2" element={<HomePageV4 />} />
         <Route path="/v3" element={<HomePageV3 />} />
-        <Route path="/v4" element={<HomePageV4 />} />
+        <Route path="/v4" element={<HomePageV2 />} />
       </Routes>
     </>
   );

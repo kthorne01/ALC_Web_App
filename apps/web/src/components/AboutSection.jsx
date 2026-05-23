@@ -10,7 +10,7 @@ const AboutSection = () => (
         backgroundImage: "url('/images/church/congregation.jpg')",
         backgroundAttachment: 'fixed',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundPosition: '30% center',
       }}
     >
       {/* Dark overlay */}

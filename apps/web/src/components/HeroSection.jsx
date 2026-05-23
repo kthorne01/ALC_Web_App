@@ -1,0 +1,83 @@
+import React from 'react';
+import { ChevronDown } from 'lucide-react';
+
+const HeroSection = () => {
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Background image — add photo at: public/images/hero/hero-bg.jpg */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/hero/hero-bg.jpg')" }}
+      />
+
+      {/* Gradient overlay — dark cinematic feel */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+
+      {/* Subtle gold glow at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black to-transparent" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+      {/* Watermark lion logo */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <img
+          src="/logo.png"
+          alt=""
+          className="w-[600px] max-w-[70vw] opacity-[0.04] brightness-0 invert select-none"
+          onError={(e) => { e.target.style.display = 'none'; }}
+        />
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-10 text-center container-custom px-6 py-32">
+        <p className="text-gold text-xs font-medium tracking-[0.5em] uppercase mb-8">
+          Home of The Living Churches
+        </p>
+
+        <h1 className="font-heading font-bold text-white uppercase leading-none mb-8">
+          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[96px] tracking-wider">
+            Abundant
+          </span>
+          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[96px] tracking-wider text-gold">
+            Life
+          </span>
+          <span className="block text-5xl sm:text-6xl md:text-7xl lg:text-[96px] tracking-wider">
+            Church
+          </span>
+        </h1>
+
+        {/* Gold divider with location */}
+        <div className="flex items-center justify-center gap-4 mb-12">
+          <div className="h-px bg-gold/60 w-16" />
+          <span className="text-white/50 text-xs tracking-[0.4em] uppercase font-medium">
+            Rock Hill, SC
+          </span>
+          <div className="h-px bg-gold/60 w-16" />
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="#visit"
+            className="bg-gold text-black px-10 py-4 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:bg-gold-light transition-all duration-200 min-w-[220px]"
+          >
+            Plan Your Visit
+          </a>
+          <a
+            href="#sermons"
+            className="border border-white/35 text-white px-10 py-4 font-heading font-bold tracking-[0.2em] uppercase text-sm hover:border-gold hover:text-gold transition-all duration-200 min-w-[220px]"
+          >
+            Watch Online
+          </a>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hover:text-gold/60 transition-colors cursor-pointer">
+        <span className="text-[10px] tracking-[0.4em] uppercase">Scroll</span>
+        <ChevronDown size={18} className="animate-bounce" />
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;

@@ -1,20 +1,37 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import Navbar from '@/components/Navbar';
+import HeroSection from '@/components/HeroSection';
+import JourneySection from '@/components/JourneySection';
+import AboutSection from '@/components/AboutSection';
+import ServiceTimesSection from '@/components/ServiceTimesSection';
+import PainPointsSection from '@/components/PainPointsSection';
+import TestimonialsSection from '@/components/TestimonialsSection';
+import CTASection from '@/components/CTASection';
+import Footer from '@/components/Footer';
 
 const HomePage = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-black">
       <Helmet>
-        <title>PROJECT_NAME</title>
-        <meta name="description" content="PROJECT_DESCRIPTION" />
+        <title>Abundant Life Church | Home of The Living Churches</title>
+        <meta
+          name="description"
+          content="Abundant Life Church in Rock Hill, SC — a community of faith, hope, and purpose. Join us for worship and discover the abundant life God has for you."
+        />
       </Helmet>
 
-      <main className="flex-grow flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold mb-4">PROJECT_NAME</h1>
-          <p className="text-muted-foreground text-lg">Your project starts here.</p>
-        </div>
+      <Navbar />
+      <main>
+        <HeroSection />
+        <JourneySection />
+        <AboutSection />
+        <ServiceTimesSection />
+        <PainPointsSection />
+        <TestimonialsSection />
+        <CTASection />
       </main>
+      <Footer />
     </div>
   );
 };

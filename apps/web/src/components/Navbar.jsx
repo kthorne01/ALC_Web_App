@@ -54,6 +54,24 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          {/* Preview version switcher */}
+          <div className="flex items-center gap-1 border border-white/15 px-2 py-1">
+            <span className="text-white/25 text-[9px] tracking-[0.3em] uppercase mr-1">Preview</span>
+            {[
+              { label: 'V1', href: '/' },
+              { label: 'V2', href: '/v2' },
+              { label: 'V3', href: '/v3' },
+              { label: 'V4', href: '/v4' },
+            ].map((v) => (
+              <a
+                key={v.label}
+                href={v.href}
+                className="text-white/40 hover:text-gold text-[10px] font-bold tracking-[0.1em] uppercase px-1.5 py-0.5 hover:bg-gold/10 transition-colors"
+              >
+                {v.label}
+              </a>
+            ))}
+          </div>
           <a
             href="#visit"
             className="bg-gold text-black px-7 py-2.5 text-xs font-bold tracking-[0.2em] uppercase hover:bg-gold-light transition-colors duration-200"
@@ -93,6 +111,24 @@ const Navbar = () => {
             >
               Plan a Visit
             </a>
+            {/* Preview version switcher */}
+            <div className="flex items-center gap-2 mt-4 pt-4 border-t border-white/10">
+              <span className="text-white/25 text-[9px] tracking-[0.3em] uppercase">Preview:</span>
+              {[
+                { label: 'V1', href: '/' },
+                { label: 'V2', href: '/v2' },
+                { label: 'V3', href: '/v3' },
+                { label: 'V4', href: '/v4' },
+              ].map((v) => (
+                <a
+                  key={v.label}
+                  href={v.href}
+                  className="text-white/40 hover:text-gold text-xs font-bold tracking-[0.1em] uppercase px-2 py-1 border border-white/10 hover:border-gold/30 transition-colors"
+                >
+                  {v.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}

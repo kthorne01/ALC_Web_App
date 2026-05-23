@@ -4,8 +4,8 @@ const StatementV3 = () => (
   <section className="bg-white py-28 lg:py-40 px-10 lg:px-16 relative overflow-hidden">
     {/* Giant watermark word */}
     <div
-      className="absolute inset-0 flex items-center justify-center font-heading font-bold text-black/[0.03] select-none pointer-events-none leading-none"
-      style={{ fontSize: 'clamp(260px, 55vw, 850px)', letterSpacing: '-0.05em' }}
+      className="absolute w-full text-center font-heading font-bold text-black/[0.03] select-none pointer-events-none"
+      style={{ fontSize: 'clamp(260px, 55vw, 850px)', letterSpacing: '-0.05em', lineHeight: 1, top: '50%', transform: 'translateY(-50%)' }}
     >
       LIFE
     </div>
